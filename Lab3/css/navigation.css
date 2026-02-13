@@ -1,0 +1,64 @@
+.navigation {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(44, 62, 80, 0.95);
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navigation a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.nav-home {
+    background-color: #3498db;
+}
+
+.nav-home:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px) scale(1.05);
+}
+
+body {
+    padding: 20px;
+    margin: 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .navigation {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+        gap: 5px;
+    }
+    
+    .navigation a {
+        padding: 8px 12px;
+        font-size: 12px;
+        min-width: 35px;
+    }
+}

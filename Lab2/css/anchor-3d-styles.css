@@ -1,0 +1,13 @@
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ddd;
+    color: #333;
+    text-decoration: none;
+    border: 2px solid;
+    border-color: #fff #aaa #aaa #fff;
+}
+
+a:active {
+    border-color: #000 #aaa #aaa #000;
+}

@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.coca-cola {
+    list-style-type: lower-alpha;
+}
+
+.pepsi {
+    list-style-type: square;
+}
+
+.healthy {
+    list-style-type: armenian;
+}
+
+.developer {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

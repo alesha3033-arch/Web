@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.progress-container {
+    width: 300px;
+    height: 30px;
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    animation: progress 3s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+.moon-container {
+    width: 400px;
+    height: 200px;
+    position: relative;
+    background: #001;
+    margin: 20px 0;
+}
+
+.moon {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    animation: moonMove 4s linear infinite;
+}
+
+@keyframes moonMove {
+    0% {
+        left: 0;
+        top: 150px;
+    }
+    50% {
+        left: 175px;
+        top: 25px;
+    }
+    100% {
+        left: 350px;
+        top: 150px;
+    }
+}
