@@ -1,0 +1,79 @@
+@page
+@model Lab6_Movies.Pages_Movies.DeleteModel
+
+@{
+    ViewData["Title"] = "Удалить фильм";
+}
+
+<div style="max-width: 700px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <a asp-page="./Index" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">
+            ← Назад к списку
+        </a>
+    </div>
+
+    <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">⚠️</div>
+            <h1 style="color: #ef4444;">Удалить фильм</h1>
+            <p style="color: var(--text-light); font-size: 1.1rem; margin-top: 1rem;">
+                Вы уверены, что хотите удалить этот фильм?<br/>
+                <strong>Это действие нельзя отменить.</strong>
+            </p>
+        </div>
+
+        <div style="background: #f9fafb; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+            <h3 style="color: var(--text-dark); margin-bottom: 1.5rem; text-align: center;">
+                @Html.DisplayFor(model => model.Movie.Title)
+            </h3>
+            
+            <dl class="row" style="margin: 0;">
+                <dt class="col-sm-4" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 0;">
+                    <span style="font-size: 1.3rem;">📅</span>
+                    <span>Дата выхода</span>
+                </dt>
+                <dd class="col-sm-8" style="padding: 0.75rem 0;">
+                    @Model.Movie.ReleaseDate.ToString("dd.MM.yyyy")
+                </dd>
+
+                <dt class="col-sm-4" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 0;">
+                    <span style="font-size: 1.3rem;">🎭</span>
+                    <span>Жанр</span>
+                </dt>
+                <dd class="col-sm-8" style="padding: 0.75rem 0;">
+                    @Html.DisplayFor(model => model.Movie.Genre)
+                </dd>
+
+                <dt class="col-sm-4" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 0;">
+                    <span style="font-size: 1.3rem;">💰</span>
+                    <span>Цена</span>
+                </dt>
+                <dd class="col-sm-8" style="padding: 0.75rem 0;">
+                    @Model.Movie.Price.ToString("C")
+                </dd>
+
+                <dt class="col-sm-4" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 0;">
+                    <span style="font-size: 1.3rem;">⭐</span>
+                    <span>Рейтинг</span>
+                </dt>
+                <dd class="col-sm-8" style="padding: 0.75rem 0;">
+                    @Html.DisplayFor(model => model.Movie.Rating)
+                </dd>
+            </dl>
+        </div>
+        
+        <form method="post">
+            <input type="hidden" asp-for="Movie.Id" />
+            <div style="display: flex; gap: 1rem;">
+                <button type="submit" class="btn" 
+                        style="flex: 1; background: #ef4444; color: white; font-size: 1rem;">
+                    🗑️ Да, удалить
+                </button>
+                <a asp-page="./Index" class="btn" 
+                   style="flex: 1; background: #6b7280; color: white; text-align: center; line-height: 2.5; text-decoration: none;">
+                    ❌ Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

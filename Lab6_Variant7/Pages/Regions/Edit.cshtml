@@ -1,0 +1,55 @@
+@page
+@model Lab6_Variant7.Pages_Regions.EditModel
+
+@{
+    ViewData["Title"] = "Редактировать";
+}
+
+<h1>Редактировать</h1>
+
+<h4>Область</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Region.SettlementsCount" class="control-label"></label>
+                <input asp-for="Region.SettlementsCount" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Region.SettlementsCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Region.Leadership" class="control-label"></label>
+                <input asp-for="Region.Leadership" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Region.Leadership" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Region.Id" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Region.Name" class="control-label"></label>
+                <input asp-for="Region.Name" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Region.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Region.Area" class="control-label"></label>
+                <input asp-for="Region.Area" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Region.Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад к списку</a> |
+    <a asp-page="/Index">На главную</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

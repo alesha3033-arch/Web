@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Lab6_Movies.Data;
+using Lab6_Movies.Models;
+
+namespace Lab6_Movies.Pages_Movies
+{
+    public class IndexModel : PageModel
+    {
+        private readonly Lab6_Movies.Data.MovieContext _context;
+
+        public IndexModel(Lab6_Movies.Data.MovieContext context)
+        {
+            _context = context;
+        }
+
+        public IList<Movie> Movie { get;set; } = default!;
+        
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
+
+        public async Task OnGetAsync()
+        {
+            var movies = from m in _context.Movie
+                         select m;
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(SearchString));
+            }
+
+            Movie = await movies.ToListAsync();
+        }
+    }
+}

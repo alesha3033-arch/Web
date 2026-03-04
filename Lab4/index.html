@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка - Игра</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐍 Змейка</h1>
+        </header>
+        
+        <div class="game-info">
+            <div class="score-panel">
+                <div class="score-item">
+                    <span class="label">Счет:</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Рекорд:</span>
+                    <span id="highScore" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Скорость:</span>
+                    <span id="speed" class="value">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            
+            <div id="gameOver" class="game-over hidden">
+                <h2>Игра окончена!</h2>
+                <p>Ваш счет: <span id="finalScore">0</span></p>
+                <button id="restartBtn" class="btn">Играть снова</button>
+            </div>
+
+            <div id="startScreen" class="start-screen">
+                <h2>Добро пожаловать!</h2>
+                <p>Управление: стрелки ← ↑ → ↓ или WASD</p>
+                <p>Собирайте еду и растите!</p>
+                <button id="startBtn" class="btn btn-start">Начать игру</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn btn-control">Пауза</button>
+            <button id="newGameBtn" class="btn btn-control">Новая игра</button>
+        </div>
+
+        <div class="instructions">
+            <h3>Инструкции:</h3>
+            <ul>
+                <li>Используйте стрелки или WASD для управления змейкой</li>
+                <li>Собирайте красную еду для роста</li>
+                <li>Не врезайтесь в стены и в себя</li>
+                <li>С каждым уровнем скорость увеличивается</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>

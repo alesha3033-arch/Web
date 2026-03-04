@@ -1,0 +1,94 @@
+﻿@page
+@using Lab6_Variant7.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Система управления местами</h1>
+    <p class="lead">Области, города и деревни</p>
+    
+    <div class="mt-4 mb-4">
+        <a asp-page="/Regions/Index" class="btn btn-primary btn-lg mx-2">Области</a>
+        <a asp-page="/Cities/Index" class="btn btn-success btn-lg mx-2">Города</a>
+        <a asp-page="/Villages/Index" class="btn btn-info btn-lg mx-2">Деревни</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h3 class="text-center mb-4">Поиск по всем местам</h3>
+    <form method="get">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <input type="text" name="SearchString" value="@Model.SearchString" class="form-control" placeholder="Введите название области, города или деревни..." />
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Поиск</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.SearchString) && Model.SearchResults != null && Model.SearchResults.Any())
+    {
+        <div class="mt-4">
+            <h4>Результаты поиска:</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Площадь (км²)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var place in Model.SearchResults)
+                    {
+                        var region = place as Region;
+                        var city = place as City;
+                        var village = place as Village;
+                        
+                        <tr>
+                            <td>
+                                @place.Name
+                                @if (region != null)
+                                {
+                                    <span class="badge badge-primary">Область</span>
+                                }
+                                else if (city != null)
+                                {
+                                    <span class="badge badge-success">Город</span>
+                                }
+                                else if (village != null)
+                                {
+                                    <span class="badge badge-info">Деревня</span>
+                                }
+                            </td>
+                            <td>@place.Area</td>
+                            <td>
+                                @if (region != null)
+                                {
+                                    <a asp-page="/Regions/Details" asp-route-id="@place.Id">Детали</a>
+                                }
+                                else if (city != null)
+                                {
+                                    <a asp-page="/Cities/Details" asp-route-id="@place.Id">Детали</a>
+                                }
+                                else if (village != null)
+                                {
+                                    <a asp-page="/Villages/Details" asp-route-id="@place.Id">Детали</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(Model.SearchString))
+    {
+        <div class="alert alert-warning mt-4">
+            Ничего не найдено по запросу "@Model.SearchString"
+        </div>
+    }
+</div>

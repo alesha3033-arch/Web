@@ -1,0 +1,64 @@
+@page
+@model Lab6_Movies.Pages_Movies.DetailsModel
+
+@{
+    ViewData["Title"] = "Детали фильма";
+}
+
+<div style="max-width: 800px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <a asp-page="./Index" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">
+            ← Назад к списку
+        </a>
+    </div>
+
+    <div class="details-card">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🎬</div>
+            <h1 style="margin-bottom: 0.5rem;">@Html.DisplayFor(model => model.Movie.Title)</h1>
+            <span class="movie-rating" style="font-size: 1.1rem; padding: 0.5rem 1.5rem;">
+                ⭐ @Html.DisplayFor(model => model.Movie.Rating)
+            </span>
+        </div>
+
+        <hr style="border: none; border-top: 2px solid #e5e7eb; margin: 2rem 0;" />
+
+        <dl class="row" style="margin: 0;">
+            <dt class="col-sm-4" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 0;">
+                <span style="font-size: 1.5rem;">📅</span>
+                <span>Дата выхода</span>
+            </dt>
+            <dd class="col-sm-8" style="padding: 1rem 0; font-size: 1.1rem;">
+                @Model.Movie.ReleaseDate.ToString("dd MMMM yyyy")
+            </dd>
+
+            <dt class="col-sm-4" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 0;">
+                <span style="font-size: 1.5rem;">🎭</span>
+                <span>Жанр</span>
+            </dt>
+            <dd class="col-sm-8" style="padding: 1rem 0; font-size: 1.1rem;">
+                @Html.DisplayFor(model => model.Movie.Genre)
+            </dd>
+
+            <dt class="col-sm-4" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 0;">
+                <span style="font-size: 1.5rem;">💰</span>
+                <span>Цена</span>
+            </dt>
+            <dd class="col-sm-8" style="padding: 1rem 0; font-size: 1.1rem;">
+                @Model.Movie.Price.ToString("C")
+            </dd>
+        </dl>
+
+        <hr style="border: none; border-top: 2px solid #e5e7eb; margin: 2rem 0;" />
+
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a asp-page="./Edit" asp-route-id="@Model.Movie.Id" class="btn btn-primary">
+                ✏️ Редактировать
+            </a>
+            <a asp-page="./Delete" asp-route-id="@Model.Movie.Id" class="btn" 
+               style="background: #ef4444; color: white;">
+                🗑️ Удалить
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@page
+@model Lab6_Variant7.Pages_Cities.CreateModel
+
+        @{
+        ViewData["Title"] = "Создать";
+        }
+        
+        <h1>Создать</h1>
+        
+    <h4>Город</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="City.RegionId" class="control-label"></label>
+                <select asp-for="City.RegionId" class ="form-control" asp-items="ViewBag.RegionId" aria-required="true"></select>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="City.Population" class="control-label"></label>
+                <input asp-for="City.Population" class="form-control" aria-required="true"/>
+                <span asp-validation-for="City.Population" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="City.Mayor" class="control-label"></label>
+                <input asp-for="City.Mayor" class="form-control" aria-required="true"/>
+                <span asp-validation-for="City.Mayor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="City.Name" class="control-label"></label>
+                <input asp-for="City.Name" class="form-control" aria-required="true"/>
+                <span asp-validation-for="City.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="City.Area" class="control-label"></label>
+                <input asp-for="City.Area" class="form-control" aria-required="true"/>
+                <span asp-validation-for="City.Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад к списку</a> |
+    <a asp-page="/Index">На главную</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

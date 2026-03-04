@@ -1,0 +1,44 @@
+@page
+@model Lab6_Variant7.Pages_Regions.DetailsModel
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>Область</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Region.SettlementsCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Region.SettlementsCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Region.Leadership)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Region.Leadership)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Region.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Region.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Region.Area)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Region.Area)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Region.Id">Редактировать</a> |
+    <a asp-page="./Index">Назад к списку</a> |
+    <a asp-page="/Index">На главную</a>
+</div>

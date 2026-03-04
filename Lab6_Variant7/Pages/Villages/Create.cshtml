@@ -1,0 +1,48 @@
+@page
+@model Lab6_Variant7.Pages_Villages.CreateModel
+
+        @{
+        ViewData["Title"] = "Создать";
+        }
+        
+        <h1>Создать</h1>
+        
+    <h4>Деревня</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Village.District" class="control-label"></label>
+                <input asp-for="Village.District" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Village.District" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Village.Name" class="control-label"></label>
+                <input asp-for="Village.Name" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Village.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Village.Area" class="control-label"></label>
+                <input asp-for="Village.Area" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Village.Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад к списку</a> |
+    <a asp-page="/Index">На главную</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

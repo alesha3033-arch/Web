@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="hero-section">
+    <h1 class="display-4">🎬 Фильмотека</h1>
+    <p class="lead">Добро пожаловать в современную систему управления фильмами</p>
+    <p style="color: var(--text-light); margin-bottom: 2rem;">
+        Создавайте, редактируйте и управляйте вашей коллекцией фильмов с легкостью
+    </p>
+    <div class="mt-4">
+        <a asp-page="/Movies/Index" class="btn btn-primary btn-lg">Перейти к фильмам</a>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
+        <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">Управление</h3>
+        <p style="color: var(--text-light);">Легко добавляйте и редактируйте фильмы</p>
+    </div>
+    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+        <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">Поиск</h3>
+        <p style="color: var(--text-light);">Быстрый поиск по названию фильма</p>
+    </div>
+    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">⭐</div>
+        <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">Рейтинги</h3>
+        <p style="color: var(--text-light);">Отслеживайте рейтинги фильмов</p>
+    </div>
+</div>

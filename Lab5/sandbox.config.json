@@ -1,0 +1,11 @@
+{
+  "infiniteLoopProtection": true,
+  "hardReloadOnChange": false,
+  "view": "browser",
+  "template": "vite-react",
+  "container": {
+    "port": 3000,
+    "startScript": "dev",
+    "node": "18"
+  }
+}
